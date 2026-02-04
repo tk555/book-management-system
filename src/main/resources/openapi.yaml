@@ -453,8 +453,8 @@ components:
     PublicationStatus:
       type: string
       enum:
-        - Unpublished
-        - Published
+        - UNPUBLISHED
+        - PUBLISHED
       description: 出版状況（出版済みステータスのものを未出版には変更できない）
 
     ErrorResponse:

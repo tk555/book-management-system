@@ -27,7 +27,7 @@ Content-Type: application/json
 {
   "title": "羅生門",
   "price": 500,
-  "publicationStatus": "Published",
+  "publicationStatus": "PUBLISHED",
   "authorIds": ["{{author_id}}"]
 }
 
@@ -42,7 +42,7 @@ Content-Type: application/json
 {
   "title": "蜘蛛の糸",
   "price": 400,
-  "publicationStatus": "Published",
+  "publicationStatus": "PUBLISHED",
   "authorIds": ["{{author_id}}"]
 }
 
@@ -57,7 +57,7 @@ Content-Type: application/json
 {
   "title": "地獄変",
   "price": 600,
-  "publicationStatus": "Unpublished",
+  "publicationStatus": "UNPUBLISHED",
   "authorIds": ["{{author_id}}"]
 }
 
@@ -98,7 +98,7 @@ GET http://localhost:8080/api/books/{{book3_id}}
 HTTP 200
 [Asserts]
 jsonpath "$.title" == "地獄変"
-jsonpath "$.publicationStatus" == "Unpublished"
+jsonpath "$.publicationStatus" == "UNPUBLISHED"
 
 
 # 8. 存在しない著者の本一覧を取得（404エラー）

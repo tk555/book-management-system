@@ -1,7 +1,7 @@
 package com.example.demo.repository
 
 import com.example.demo.domain.Book
-import com.example.demo.infrastructure.converter.PublicationStatusConverter
+import com.example.demo.domain.PublicationStatus
 import com.example.demo.jooq.tables.Books.Companion.BOOKS
 import com.example.demo.jooq.tables.records.BooksRecord
 import org.jooq.Record
@@ -20,7 +20,7 @@ internal fun BooksRecord.toDomain(authorIds: Set<UUID>): Book =
         id = id!!,
         title = title,
         price = price,
-        publicationStatus = PublicationStatusConverter.fromDbValue(publicationStatus),
+        publicationStatus = PublicationStatus.valueOf(publicationStatus),
         authorIds = authorIds,
     )
 
@@ -38,7 +38,7 @@ internal fun Record.toBookWithTimestamps(authorIds: Set<UUID>): BookWithTimestam
                 id = get(BOOKS.ID)!!,
                 title = get(BOOKS.TITLE)!!,
                 price = get(BOOKS.PRICE)!!,
-                publicationStatus = PublicationStatusConverter.fromDbValue(get(BOOKS.PUBLICATION_STATUS)!!),
+                publicationStatus = PublicationStatus.valueOf(get(BOOKS.PUBLICATION_STATUS)!!),
                 authorIds = authorIds,
             ),
         createdAt = get(BOOKS.CREATED_AT)!!.atOffset(ZoneOffset.UTC),

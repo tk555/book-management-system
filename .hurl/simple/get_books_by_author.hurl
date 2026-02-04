@@ -17,7 +17,7 @@ Content-Type: application/json
 {
   "title": "雪国",
   "price": 600,
-  "publicationStatus": "Published",
+  "publicationStatus": "PUBLISHED",
   "authorIds": ["{{author_id}}"]
 }
 

@@ -45,7 +45,7 @@ Content-Type: application/json
 {
   "title": "著者変更テスト本",
   "price": 1500,
-  "publicationStatus": "Unpublished",
+  "publicationStatus": "UNPUBLISHED",
   "authorIds": ["{{author_a_id}}"]
 }
 
@@ -63,7 +63,7 @@ Content-Type: application/json
 {
   "title": "著者変更テスト本",
   "price": 1500,
-  "publicationStatus": "Unpublished",
+  "publicationStatus": "UNPUBLISHED",
   "authorIds": ["{{author_b_id}}"]
 }
 
@@ -96,7 +96,7 @@ Content-Type: application/json
 {
   "title": "著者変更テスト本",
   "price": 1500,
-  "publicationStatus": "Unpublished",
+  "publicationStatus": "UNPUBLISHED",
   "authorIds": ["{{author_b_id}}", "{{author_c_id}}"]
 }
 
@@ -119,7 +119,7 @@ Content-Type: application/json
 {
   "title": "著者変更テスト本",
   "price": 1500,
-  "publicationStatus": "Unpublished",
+  "publicationStatus": "UNPUBLISHED",
   "authorIds": ["{{author_b_id}}", "00000000-0000-0000-0000-000000000000"]
 }
 

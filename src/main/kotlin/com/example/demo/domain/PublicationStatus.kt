@@ -1,13 +1,9 @@
 package com.example.demo.domain
 
-sealed interface PublicationStatus {
-    data object Published : PublicationStatus
+enum class PublicationStatus {
+    UNPUBLISHED,
+    PUBLISHED,
+    ;
 
-    data object Unpublished : PublicationStatus
-
-    fun canTransitionTo(newStatus: PublicationStatus): Boolean =
-        when (this) {
-            Unpublished -> true
-            Published -> newStatus == Published
-        }
+    fun canTransitionTo(newStatus: PublicationStatus): Boolean = this == UNPUBLISHED || newStatus == PUBLISHED
 }

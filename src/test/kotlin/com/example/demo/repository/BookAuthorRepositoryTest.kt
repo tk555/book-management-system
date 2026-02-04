@@ -40,7 +40,7 @@ class BookAuthorRepositoryTest : RepositoryTestBase() {
             Book.create(
                 title = title,
                 price = 1000,
-                publicationStatus = PublicationStatus.Unpublished,
+                publicationStatus = PublicationStatus.UNPUBLISHED,
                 authorIds = authorIds,
             )
         bookRepository.insert(dsl, book)
@@ -54,7 +54,7 @@ class BookAuthorRepositoryTest : RepositoryTestBase() {
             Book.create(
                 title = "共著本",
                 price = 1000,
-                publicationStatus = PublicationStatus.Unpublished,
+                publicationStatus = PublicationStatus.UNPUBLISHED,
                 authorIds = setOf(author1.id, author2.id),
             )
         bookRepository.insert(dsl, book)

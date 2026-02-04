@@ -54,7 +54,7 @@ class BooksApiE2ETest : E2ETestBase() {
                     {
                         "title": "吾輩は猫である",
                         "price": 500,
-                        "publicationStatus": "Unpublished",
+                        "publicationStatus": "UNPUBLISHED",
                         "authorIds": ["$authorId"]
                     }
                     """,
@@ -62,7 +62,7 @@ class BooksApiE2ETest : E2ETestBase() {
             ).andExpect(status().isCreated)
             .andExpect(jsonPath("$.title").value("吾輩は猫である"))
             .andExpect(jsonPath("$.price").value(500))
-            .andExpect(jsonPath("$.publicationStatus").value("Unpublished"))
+            .andExpect(jsonPath("$.publicationStatus").value("UNPUBLISHED"))
             .andExpect(jsonPath("$.authors.length()").value(1))
             .andExpect(jsonPath("$.authors[0].name").value("夏目漱石"))
     }
@@ -81,7 +81,7 @@ class BooksApiE2ETest : E2ETestBase() {
                     {
                         "title": "羅生門",
                         "price": 400,
-                        "publicationStatus": "Published",
+                        "publicationStatus": "PUBLISHED",
                         "authorIds": ["$authorId"]
                     }
                     """,
@@ -119,7 +119,7 @@ class BooksApiE2ETest : E2ETestBase() {
                     {
                         "title": "舞姫",
                         "price": 500,
-                        "publicationStatus": "Unpublished",
+                        "publicationStatus": "UNPUBLISHED",
                         "authorIds": ["$authorId"]
                     }
                     """,
@@ -139,7 +139,7 @@ class BooksApiE2ETest : E2ETestBase() {
                     {
                         "title": "舞姫（改訂版）",
                         "price": 600,
-                        "publicationStatus": "Published",
+                        "publicationStatus": "PUBLISHED",
                         "authorIds": ["$authorId"]
                     }
                     """,
@@ -147,7 +147,7 @@ class BooksApiE2ETest : E2ETestBase() {
             ).andExpect(status().isOk)
             .andExpect(jsonPath("$.title").value("舞姫（改訂版）"))
             .andExpect(jsonPath("$.price").value(600))
-            .andExpect(jsonPath("$.publicationStatus").value("Published"))
+            .andExpect(jsonPath("$.publicationStatus").value("PUBLISHED"))
     }
 
     @Test
@@ -164,7 +164,7 @@ class BooksApiE2ETest : E2ETestBase() {
                     {
                         "title": "雪国",
                         "price": 700,
-                        "publicationStatus": "Published",
+                        "publicationStatus": "PUBLISHED",
                         "authorIds": ["$authorId"]
                     }
                     """,
@@ -184,7 +184,7 @@ class BooksApiE2ETest : E2ETestBase() {
                     {
                         "title": "雪国",
                         "price": 700,
-                        "publicationStatus": "Unpublished",
+                        "publicationStatus": "UNPUBLISHED",
                         "authorIds": ["$authorId"]
                     }
                     """,
@@ -203,7 +203,7 @@ class BooksApiE2ETest : E2ETestBase() {
                     {
                         "title": "テスト本",
                         "price": 500,
-                        "publicationStatus": "Unpublished",
+                        "publicationStatus": "UNPUBLISHED",
                         "authorIds": ["00000000-0000-0000-0000-000000000000"]
                     }
                     """,
@@ -224,7 +224,7 @@ class BooksApiE2ETest : E2ETestBase() {
                     {
                         "title": "テスト本",
                         "price": -100,
-                        "publicationStatus": "Unpublished",
+                        "publicationStatus": "UNPUBLISHED",
                         "authorIds": ["$authorId"]
                     }
                     """,
@@ -268,7 +268,7 @@ class BooksApiE2ETest : E2ETestBase() {
                     {
                         "title": "人間失格",
                         "price": 500,
-                        "publicationStatus": "Published",
+                        "publicationStatus": "PUBLISHED",
                         "authorIds": ["$author1Id"]
                     }
                     """,
@@ -284,7 +284,7 @@ class BooksApiE2ETest : E2ETestBase() {
                     {
                         "title": "金閣寺",
                         "price": 800,
-                        "publicationStatus": "Unpublished",
+                        "publicationStatus": "UNPUBLISHED",
                         "authorIds": ["$author2Id"]
                     }
                     """,
@@ -318,7 +318,7 @@ class BooksApiE2ETest : E2ETestBase() {
 
         // 出版状況で検索
         mockMvc
-            .perform(get("/api/books/search").param("publicationStatus", "Published"))
+            .perform(get("/api/books/search").param("publicationStatus", "PUBLISHED"))
             .andExpect(status().isOk)
             .andExpect(jsonPath("$.content.length()").value(1))
             .andExpect(jsonPath("$.content[0].title").value("人間失格"))
@@ -337,7 +337,7 @@ class BooksApiE2ETest : E2ETestBase() {
                     {
                         "title": "",
                         "price": 500,
-                        "publicationStatus": "Unpublished",
+                        "publicationStatus": "UNPUBLISHED",
                         "authorIds": ["$authorId"]
                     }
                     """,
@@ -359,7 +359,7 @@ class BooksApiE2ETest : E2ETestBase() {
                     {
                         "title": "$longTitle",
                         "price": 500,
-                        "publicationStatus": "Unpublished",
+                        "publicationStatus": "UNPUBLISHED",
                         "authorIds": ["$authorId"]
                     }
                     """,
@@ -378,7 +378,7 @@ class BooksApiE2ETest : E2ETestBase() {
                     {
                         "title": "著者なしの本",
                         "price": 500,
-                        "publicationStatus": "Unpublished",
+                        "publicationStatus": "UNPUBLISHED",
                         "authorIds": []
                     }
                     """,
@@ -399,7 +399,7 @@ class BooksApiE2ETest : E2ETestBase() {
                     {
                         "title": "存在しない書籍",
                         "price": 500,
-                        "publicationStatus": "Unpublished",
+                        "publicationStatus": "UNPUBLISHED",
                         "authorIds": ["$authorId"]
                     }
                     """,
@@ -421,7 +421,7 @@ class BooksApiE2ETest : E2ETestBase() {
                     {
                         "title": "更新テスト用の本",
                         "price": 500,
-                        "publicationStatus": "Unpublished",
+                        "publicationStatus": "UNPUBLISHED",
                         "authorIds": ["$authorId"]
                     }
                     """,
@@ -440,7 +440,7 @@ class BooksApiE2ETest : E2ETestBase() {
                     {
                         "title": "更新テスト用の本",
                         "price": 500,
-                        "publicationStatus": "Unpublished",
+                        "publicationStatus": "UNPUBLISHED",
                         "authorIds": ["00000000-0000-0000-0000-000000000000"]
                     }
                     """,
@@ -468,7 +468,7 @@ class BooksApiE2ETest : E2ETestBase() {
                     {
                         "title": "銀河鉄道の夜",
                         "price": 500,
-                        "publicationStatus": "Published",
+                        "publicationStatus": "PUBLISHED",
                         "authorIds": ["$authorId"]
                     }
                     """,
@@ -484,7 +484,7 @@ class BooksApiE2ETest : E2ETestBase() {
                     {
                         "title": "注文の多い料理店",
                         "price": 400,
-                        "publicationStatus": "Published",
+                        "publicationStatus": "PUBLISHED",
                         "authorIds": ["$authorId"]
                     }
                     """,

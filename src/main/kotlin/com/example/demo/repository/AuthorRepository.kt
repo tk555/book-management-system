@@ -2,7 +2,6 @@ package com.example.demo.repository
 
 import com.example.demo.domain.Author
 import com.example.demo.domain.PublicationStatus
-import com.example.demo.infrastructure.converter.PublicationStatusConverter
 import com.example.demo.jooq.tables.Authors.Companion.AUTHORS
 import com.example.demo.jooq.tables.BookAuthors.Companion.BOOK_AUTHORS
 import com.example.demo.jooq.tables.Books.Companion.BOOKS
@@ -167,7 +166,7 @@ class AuthorRepository {
                 dateOfBirthFrom?.let { AUTHORS.DATE_OF_BIRTH.greaterOrEqual(it) },
                 dateOfBirthTo?.let { AUTHORS.DATE_OF_BIRTH.lessOrEqual(it) },
                 bookTitle?.let { BOOKS.TITLE.containsIgnoreCase(it) },
-                publicationStatus?.let { BOOKS.PUBLICATION_STATUS.eq(PublicationStatusConverter.toDbValue(it)) },
+                publicationStatus?.let { BOOKS.PUBLICATION_STATUS.eq(it.name) },
             )
 
         val from =

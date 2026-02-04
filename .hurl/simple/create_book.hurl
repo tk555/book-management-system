@@ -17,7 +17,7 @@ Content-Type: application/json
 {
   "title": "金閣寺",
   "price": 800,
-  "publicationStatus": "Unpublished",
+  "publicationStatus": "UNPUBLISHED",
   "authorIds": ["{{author_id}}"]
 }
 
@@ -26,7 +26,7 @@ HTTP 201
 jsonpath "$.id" exists
 jsonpath "$.title" == "金閣寺"
 jsonpath "$.price" == 800
-jsonpath "$.publicationStatus" == "Unpublished"
+jsonpath "$.publicationStatus" == "UNPUBLISHED"
 jsonpath "$.authors" count == 1
 jsonpath "$.authors[0].name" == "三島由紀夫"
 jsonpath "$.createdAt" exists

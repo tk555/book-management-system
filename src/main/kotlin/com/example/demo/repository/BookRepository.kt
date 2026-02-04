@@ -2,7 +2,6 @@ package com.example.demo.repository
 
 import com.example.demo.domain.Book
 import com.example.demo.domain.PublicationStatus
-import com.example.demo.infrastructure.converter.PublicationStatusConverter
 import com.example.demo.jooq.tables.Authors.Companion.AUTHORS
 import com.example.demo.jooq.tables.BookAuthors.Companion.BOOK_AUTHORS
 import com.example.demo.jooq.tables.Books.Companion.BOOKS
@@ -23,7 +22,7 @@ class BookRepository {
                 .set(BOOKS.ID, book.id)
                 .set(BOOKS.TITLE, book.title)
                 .set(BOOKS.PRICE, book.price)
-                .set(BOOKS.PUBLICATION_STATUS, PublicationStatusConverter.toDbValue(book.publicationStatus))
+                .set(BOOKS.PUBLICATION_STATUS, book.publicationStatus.name)
                 .returning()
                 .fetchSingle()
 
@@ -57,7 +56,7 @@ class BookRepository {
                 .update(BOOKS)
                 .set(BOOKS.TITLE, book.title)
                 .set(BOOKS.PRICE, book.price)
-                .set(BOOKS.PUBLICATION_STATUS, PublicationStatusConverter.toDbValue(book.publicationStatus))
+                .set(BOOKS.PUBLICATION_STATUS, book.publicationStatus.name)
                 .where(BOOKS.ID.eq(book.id))
                 .returning()
                 .fetchSingle()
@@ -122,7 +121,7 @@ class BookRepository {
                 authorName?.let { AUTHORS.NAME.containsIgnoreCase(it) },
                 priceFrom?.let { BOOKS.PRICE.greaterOrEqual(it) },
                 priceTo?.let { BOOKS.PRICE.lessOrEqual(it) },
-                publicationStatus?.let { BOOKS.PUBLICATION_STATUS.eq(PublicationStatusConverter.toDbValue(it)) },
+                publicationStatus?.let { BOOKS.PUBLICATION_STATUS.eq(it.name) },
             )
 
         val from =

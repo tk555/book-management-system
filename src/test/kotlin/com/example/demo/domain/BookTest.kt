@@ -14,14 +14,14 @@ class BookTest {
             Book.create(
                 title = "吾輩は猫である",
                 price = 500,
-                publicationStatus = PublicationStatus.Unpublished,
+                publicationStatus = PublicationStatus.UNPUBLISHED,
                 authorIds = setOf(authorId),
             )
 
         assertNotNull(book.id)
         assertEquals("吾輩は猫である", book.title)
         assertEquals(500, book.price)
-        assertEquals(PublicationStatus.Unpublished, book.publicationStatus)
+        assertEquals(PublicationStatus.UNPUBLISHED, book.publicationStatus)
         assertEquals(setOf(authorId), book.authorIds)
     }
 
@@ -33,7 +33,7 @@ class BookTest {
             Book.create(
                 title = "共著書",
                 price = 1000,
-                publicationStatus = PublicationStatus.Published,
+                publicationStatus = PublicationStatus.PUBLISHED,
                 authorIds = setOf(authorId1, authorId2),
             )
 
@@ -46,7 +46,7 @@ class BookTest {
             Book.create(
                 title = "",
                 price = 500,
-                publicationStatus = PublicationStatus.Unpublished,
+                publicationStatus = PublicationStatus.UNPUBLISHED,
                 authorIds = setOf(UUID.randomUUID()),
             )
         }
@@ -59,7 +59,7 @@ class BookTest {
             Book.create(
                 title = longTitle,
                 price = 500,
-                publicationStatus = PublicationStatus.Unpublished,
+                publicationStatus = PublicationStatus.UNPUBLISHED,
                 authorIds = setOf(UUID.randomUUID()),
             )
         }
@@ -71,7 +71,7 @@ class BookTest {
             Book.create(
                 title = "Test Book",
                 price = -1,
-                publicationStatus = PublicationStatus.Unpublished,
+                publicationStatus = PublicationStatus.UNPUBLISHED,
                 authorIds = setOf(UUID.randomUUID()),
             )
         }
@@ -83,7 +83,7 @@ class BookTest {
             Book.create(
                 title = "Free Book",
                 price = 0,
-                publicationStatus = PublicationStatus.Unpublished,
+                publicationStatus = PublicationStatus.UNPUBLISHED,
                 authorIds = setOf(UUID.randomUUID()),
             )
 
@@ -96,7 +96,7 @@ class BookTest {
             Book.create(
                 title = "Test Book",
                 price = 500,
-                publicationStatus = PublicationStatus.Unpublished,
+                publicationStatus = PublicationStatus.UNPUBLISHED,
                 authorIds = emptySet(),
             )
         }
@@ -108,7 +108,7 @@ class BookTest {
             Book.create(
                 title = "Test Book",
                 price = 500,
-                publicationStatus = PublicationStatus.Unpublished,
+                publicationStatus = PublicationStatus.UNPUBLISHED,
                 authorIds = setOf(UUID.randomUUID()),
             )
 
@@ -116,11 +116,11 @@ class BookTest {
             book.update(
                 title = "Test Book",
                 price = 500,
-                publicationStatus = PublicationStatus.Published,
+                publicationStatus = PublicationStatus.PUBLISHED,
                 authorIds = book.authorIds,
             )
 
-        assertEquals(PublicationStatus.Published, updated.publicationStatus)
+        assertEquals(PublicationStatus.PUBLISHED, updated.publicationStatus)
     }
 
     @Test
@@ -129,7 +129,7 @@ class BookTest {
             Book.create(
                 title = "Test Book",
                 price = 500,
-                publicationStatus = PublicationStatus.Published,
+                publicationStatus = PublicationStatus.PUBLISHED,
                 authorIds = setOf(UUID.randomUUID()),
             )
 
@@ -137,7 +137,7 @@ class BookTest {
             book.update(
                 title = "Test Book",
                 price = 500,
-                publicationStatus = PublicationStatus.Unpublished,
+                publicationStatus = PublicationStatus.UNPUBLISHED,
                 authorIds = book.authorIds,
             )
         }
@@ -151,7 +151,7 @@ class BookTest {
             Book.create(
                 title = "Original Title",
                 price = 500,
-                publicationStatus = PublicationStatus.Unpublished,
+                publicationStatus = PublicationStatus.UNPUBLISHED,
                 authorIds = setOf(authorId1),
             )
 
@@ -159,14 +159,14 @@ class BookTest {
             book.update(
                 title = "Updated Title",
                 price = 1000,
-                publicationStatus = PublicationStatus.Published,
+                publicationStatus = PublicationStatus.PUBLISHED,
                 authorIds = setOf(authorId1, authorId2),
             )
 
         assertEquals(book.id, updated.id)
         assertEquals("Updated Title", updated.title)
         assertEquals(1000, updated.price)
-        assertEquals(PublicationStatus.Published, updated.publicationStatus)
+        assertEquals(PublicationStatus.PUBLISHED, updated.publicationStatus)
         assertEquals(setOf(authorId1, authorId2), updated.authorIds)
     }
 }

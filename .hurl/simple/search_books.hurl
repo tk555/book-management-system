@@ -16,7 +16,7 @@ Content-Type: application/json
 {
   "title": "舞姫",
   "price": 400,
-  "publicationStatus": "Published",
+  "publicationStatus": "PUBLISHED",
   "authorIds": ["{{author_id}}"]
 }
 
@@ -39,14 +39,14 @@ HTTP 200
 jsonpath "$.content" count >= 1
 
 # 出版状況で検索
-GET http://localhost:8080/api/books/search?publicationStatus=Published
+GET http://localhost:8080/api/books/search?publicationStatus=PUBLISHED
 
 HTTP 200
 [Asserts]
 jsonpath "$.content" count >= 1
 
 # 複合検索 (森)
-GET http://localhost:8080/api/books/search?authorName=%E6%A3%AE&publicationStatus=Published
+GET http://localhost:8080/api/books/search?authorName=%E6%A3%AE&publicationStatus=PUBLISHED
 
 HTTP 200
 [Asserts]

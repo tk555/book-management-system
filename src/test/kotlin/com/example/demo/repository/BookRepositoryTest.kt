@@ -40,7 +40,7 @@ class BookRepositoryTest : RepositoryTestBase() {
             Book.create(
                 title = "吾輩は猫である",
                 price = 1500,
-                publicationStatus = PublicationStatus.Unpublished,
+                publicationStatus = PublicationStatus.UNPUBLISHED,
                 authorIds = setOf(testAuthor.id),
             )
 
@@ -49,7 +49,7 @@ class BookRepositoryTest : RepositoryTestBase() {
         assertEquals(book.id, result.book.id)
         assertEquals("吾輩は猫である", result.book.title)
         assertEquals(1500, result.book.price)
-        assertEquals(PublicationStatus.Unpublished, result.book.publicationStatus)
+        assertEquals(PublicationStatus.UNPUBLISHED, result.book.publicationStatus)
         assertNotNull(result.createdAt)
         assertNotNull(result.updatedAt)
     }
@@ -60,7 +60,7 @@ class BookRepositoryTest : RepositoryTestBase() {
             Book.create(
                 title = "坊っちゃん",
                 price = 2000,
-                publicationStatus = PublicationStatus.Published,
+                publicationStatus = PublicationStatus.PUBLISHED,
                 authorIds = setOf(testAuthor.id),
             )
         bookRepository.insert(dsl, book)
@@ -87,7 +87,7 @@ class BookRepositoryTest : RepositoryTestBase() {
             Book.create(
                 title = "旧タイトル",
                 price = 1000,
-                publicationStatus = PublicationStatus.Unpublished,
+                publicationStatus = PublicationStatus.UNPUBLISHED,
                 authorIds = setOf(testAuthor.id),
             )
         bookRepository.insert(dsl, book)
@@ -96,14 +96,14 @@ class BookRepositoryTest : RepositoryTestBase() {
             book.update(
                 title = "新タイトル",
                 price = 1200,
-                publicationStatus = PublicationStatus.Published,
+                publicationStatus = PublicationStatus.PUBLISHED,
                 authorIds = setOf(testAuthor.id),
             )
         val result = bookRepository.update(dsl, updatedBook)
 
         assertEquals("新タイトル", result.book.title)
         assertEquals(1200, result.book.price)
-        assertEquals(PublicationStatus.Published, result.book.publicationStatus)
+        assertEquals(PublicationStatus.PUBLISHED, result.book.publicationStatus)
     }
 
     @Test
@@ -112,7 +112,7 @@ class BookRepositoryTest : RepositoryTestBase() {
             Book.create(
                 title = "こころ",
                 price = 500,
-                publicationStatus = PublicationStatus.Unpublished,
+                publicationStatus = PublicationStatus.UNPUBLISHED,
                 authorIds = setOf(testAuthor.id),
             )
         bookRepository.insert(dsl, book)

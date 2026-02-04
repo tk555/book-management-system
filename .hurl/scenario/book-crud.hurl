@@ -32,7 +32,7 @@ Content-Type: application/json
 {
   "title": "ノルウェイの森",
   "price": 1500,
-  "publicationStatus": "Published",
+  "publicationStatus": "PUBLISHED",
   "authorIds": ["{{author1_id}}"]
 }
 
@@ -42,7 +42,7 @@ book1_id: jsonpath "$.id"
 [Asserts]
 jsonpath "$.title" == "ノルウェイの森"
 jsonpath "$.price" == 1500
-jsonpath "$.publicationStatus" == "Published"
+jsonpath "$.publicationStatus" == "PUBLISHED"
 jsonpath "$.authors" count == 1
 jsonpath "$.authors[0].id" == "{{author1_id}}"
 
@@ -53,7 +53,7 @@ Content-Type: application/json
 {
   "title": "共著の本",
   "price": 2000,
-  "publicationStatus": "Unpublished",
+  "publicationStatus": "UNPUBLISHED",
   "authorIds": ["{{author1_id}}", "{{author2_id}}"]
 }
 
@@ -79,7 +79,7 @@ Content-Type: application/json
 {
   "title": "ノルウェイの森（上）",
   "price": 1800,
-  "publicationStatus": "Published",
+  "publicationStatus": "PUBLISHED",
   "authorIds": ["{{author1_id}}"]
 }
 

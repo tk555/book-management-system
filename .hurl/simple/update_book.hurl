@@ -17,7 +17,7 @@ Content-Type: application/json
 {
   "title": "銀河鉄道の夜",
   "price": 500,
-  "publicationStatus": "Unpublished",
+  "publicationStatus": "UNPUBLISHED",
   "authorIds": ["{{author_id}}"]
 }
 
@@ -31,7 +31,7 @@ Content-Type: application/json
 {
   "title": "銀河鉄道の夜（改訂版）",
   "price": 700,
-  "publicationStatus": "Published",
+  "publicationStatus": "PUBLISHED",
   "authorIds": ["{{author_id}}"]
 }
 
@@ -40,4 +40,4 @@ HTTP 200
 jsonpath "$.id" == {{book_id}}
 jsonpath "$.title" == "銀河鉄道の夜（改訂版）"
 jsonpath "$.price" == 700
-jsonpath "$.publicationStatus" == "Published"
+jsonpath "$.publicationStatus" == "PUBLISHED"

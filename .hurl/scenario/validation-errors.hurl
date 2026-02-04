@@ -67,7 +67,7 @@ Content-Type: application/json
 {
   "title": "",
   "price": 1000,
-  "publicationStatus": "Unpublished",
+  "publicationStatus": "UNPUBLISHED",
   "authorIds": ["{{valid_author_id}}"]
 }
 
@@ -80,7 +80,7 @@ Content-Type: application/json
 {
   "title": "負の価格の本",
   "price": -100,
-  "publicationStatus": "Unpublished",
+  "publicationStatus": "UNPUBLISHED",
   "authorIds": ["{{valid_author_id}}"]
 }
 
@@ -93,7 +93,7 @@ Content-Type: application/json
 {
   "title": "著者なしの本",
   "price": 1000,
-  "publicationStatus": "Unpublished",
+  "publicationStatus": "UNPUBLISHED",
   "authorIds": []
 }
 
@@ -106,7 +106,7 @@ Content-Type: application/json
 {
   "title": "存在しない著者の本",
   "price": 1000,
-  "publicationStatus": "Unpublished",
+  "publicationStatus": "UNPUBLISHED",
   "authorIds": ["00000000-0000-0000-0000-000000000000"]
 }
 
@@ -119,7 +119,7 @@ Content-Type: application/json
 {
   "title": "存在しない本",
   "price": 1000,
-  "publicationStatus": "Unpublished",
+  "publicationStatus": "UNPUBLISHED",
   "authorIds": ["{{valid_author_id}}"]
 }
 

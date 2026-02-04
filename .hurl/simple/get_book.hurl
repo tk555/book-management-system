@@ -17,7 +17,7 @@ Content-Type: application/json
 {
   "title": "細雪",
   "price": 1200,
-  "publicationStatus": "Published",
+  "publicationStatus": "PUBLISHED",
   "authorIds": ["{{author_id}}"]
 }
 
@@ -33,5 +33,5 @@ HTTP 200
 jsonpath "$.id" == {{book_id}}
 jsonpath "$.title" == "細雪"
 jsonpath "$.price" == 1200
-jsonpath "$.publicationStatus" == "Published"
+jsonpath "$.publicationStatus" == "PUBLISHED"
 jsonpath "$.authors[0].name" == "谷崎潤一郎"

@@ -1,23 +1,15 @@
 package com.example.demo.controller.mapper
 
 import com.example.demo.model.Book
-import com.example.demo.model.PublicationStatus
 import com.example.demo.repository.AuthorWithTimestamps
 import com.example.demo.service.BookService
 import com.example.demo.domain.PublicationStatus as DomainPublicationStatus
 import com.example.demo.model.Author as ApiAuthor
+import com.example.demo.model.PublicationStatus as ApiPublicationStatus
 
-fun PublicationStatus.toDomain(): DomainPublicationStatus =
-    when (this) {
-        PublicationStatus.Unpublished -> DomainPublicationStatus.Unpublished
-        PublicationStatus.Published -> DomainPublicationStatus.Published
-    }
+fun ApiPublicationStatus.toDomain(): DomainPublicationStatus = DomainPublicationStatus.valueOf(name)
 
-fun DomainPublicationStatus.toApi(): PublicationStatus =
-    when (this) {
-        DomainPublicationStatus.Unpublished -> PublicationStatus.Unpublished
-        DomainPublicationStatus.Published -> PublicationStatus.Published
-    }
+fun DomainPublicationStatus.toApi(): ApiPublicationStatus = ApiPublicationStatus.valueOf(name)
 
 fun AuthorWithTimestamps.toApiAuthor(): ApiAuthor =
     ApiAuthor(
