@@ -38,7 +38,7 @@ class BooksApiE2ETest : E2ETestBase() {
                 ).andExpect(status().isCreated)
                 .andReturn()
 
-        return objectMapper.readTree(result.response.contentAsString).get("id").asText()
+        return objectMapper.readTree(result.response.contentAsString).get("id").asString()
     }
 
     @Test
@@ -89,7 +89,7 @@ class BooksApiE2ETest : E2ETestBase() {
                 ).andExpect(status().isCreated)
                 .andReturn()
 
-        val bookId = objectMapper.readTree(createResult.response.contentAsString).get("id").asText()
+        val bookId = objectMapper.readTree(createResult.response.contentAsString).get("id").asString()
 
         mockMvc
             .perform(get("/api/books/$bookId"))
@@ -127,7 +127,7 @@ class BooksApiE2ETest : E2ETestBase() {
                 ).andExpect(status().isCreated)
                 .andReturn()
 
-        val bookId = objectMapper.readTree(createResult.response.contentAsString).get("id").asText()
+        val bookId = objectMapper.readTree(createResult.response.contentAsString).get("id").asString()
 
         // 出版済みに更新
         mockMvc
@@ -172,7 +172,7 @@ class BooksApiE2ETest : E2ETestBase() {
                 ).andExpect(status().isCreated)
                 .andReturn()
 
-        val bookId = objectMapper.readTree(createResult.response.contentAsString).get("id").asText()
+        val bookId = objectMapper.readTree(createResult.response.contentAsString).get("id").asString()
 
         // 出版済み → 未出版への変更は失敗
         mockMvc
@@ -429,7 +429,7 @@ class BooksApiE2ETest : E2ETestBase() {
                 ).andExpect(status().isCreated)
                 .andReturn()
 
-        val bookId = objectMapper.readTree(createResult.response.contentAsString).get("id").asText()
+        val bookId = objectMapper.readTree(createResult.response.contentAsString).get("id").asString()
 
         mockMvc
             .perform(

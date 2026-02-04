@@ -52,7 +52,7 @@ class AuthorsApiE2ETest : E2ETestBase() {
                 ).andExpect(status().isCreated)
                 .andReturn()
 
-        val authorId = objectMapper.readTree(createResult.response.contentAsString).get("id").asText()
+        val authorId = objectMapper.readTree(createResult.response.contentAsString).get("id").asString()
 
         // 著者を取得
         mockMvc
@@ -81,7 +81,7 @@ class AuthorsApiE2ETest : E2ETestBase() {
                 ).andExpect(status().isCreated)
                 .andReturn()
 
-        val authorId = objectMapper.readTree(createResult.response.contentAsString).get("id").asText()
+        val authorId = objectMapper.readTree(createResult.response.contentAsString).get("id").asString()
 
         // 著者を更新
         mockMvc
